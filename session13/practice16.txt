@@ -1,0 +1,23 @@
+1- Create a functional interface called StringOperation with a single method String performOperation(String str). Implement this interface in two classes, UpperCaseOperation and LowerCaseOperation, which convert the input string to uppercase and lowercase, respectively. Write a program that accepts a string and performs the desired operation based on user input.
+
+
+2-Implement a functional interface called MathOperation with a method double performOperation(double a, double b). Create two classes that implement this interface: AdditionOperation and SubtractionOperation, which perform addition and subtraction of the two input numbers, respectively. Use these classes in a program to perform arithmetic operations based on user input.
+
+
+3- Create a functional interface called NumberPredicate with a method boolean test(int num). Implement this interface in a class called EvenNumberPredicate that checks if a given number is even. Use this predicate to filter even numbers from an array of integers.
+
+4- Implement a functional interface called Converter with two methods: double convertToMetric(double value) and double convertToImperial(double value). Create two classes, KilometerToMileConverter and MileToKilometerConverter, that convert distances between kilometers and miles. Use these converters to perform distance conversions based on user input.
+
+5- Create a functional interface called Predicate<T> with a method boolean test(T value). Implement this interface in a class called StringLengthPredicate that checks if a given string has a length greater than 5. Use this predicate to filter strings from a list based on their length.
+
+6- Implement a functional interface called ListTransformer with a method List<Integer> transform(List<Integer> numbers). Create a class called IncrementListTransformer that increments each element of the input list by 1. Use this transformer to modify a given list of numbers.
+
+
+7- Implement a functional interface called ListAggregator<T, R> with a method R aggregate(List<T> list). Create a class called SumAggregator that calculates the sum of all the elements in the input list. Use this aggregator to aggregate a given list of integers.
+
+8- Write a function that generates a random password consisting of a combination of uppercase letters, lowercase letters, and digits. Use a Supplier to implement this function
+
+9- Write a function that generates a unique activation code for each user registration. The activation code should be a randomly generated alphanumeric string with a specific length. Use a Supplier to implement this function.
+
+10 -Write a function that accepts a list of integers and a consumer. The function should apply the consumer to each element of the list and perform a custom operation on each element, such as multiplying it by a factor.
+
