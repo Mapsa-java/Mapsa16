@@ -1,0 +1,194 @@
+create   table warehouse (
+id int , 
+name varchar(50) , 
+code varchar(4) , 
+area decimal (5 , 2) , 
+location varchar(255) ,
+primary key (id),
+unique (code)
+);
+
+use mapsa ; 
+select * from warehouse  ; 
+alter table warehouse add owner_name varchar(50) after code;
+
+insert into warehouse  (name , code , area , location ) values 
+("anbar2"  , "z125" , 500.253 , "Karaj"), 
+("anbar3"  , "z127" , 173.453 , "Tehran")
+;
+
+insert into warehouse  (name , code , area , location ) values 
+("anbar2"  , "z125" , 500.253 , "Karaj"), 
+("anbar3"  , "z127" , 173.453 , "Tehran")
+;
+
+update warehouse set code  = "z129" , area = 234.35 where code = 'z127';
+commit ;
+
+show variables ; 
+set autocommit = on ;  
+
+insert into warehouse  (name , code , area , location ) values 
+("anbar4"  , "h656" , 10.253 , "Yazd"), 
+("anbar5"  , "t643" , 34.453 , "Tehran"),
+("anbar6"  , "t657" , 980.453 , "Karaj")
+;
+
+SELECT name as  anbar_name, code as anbar_code, owner_name  FROM mapsa.warehouse as wh1;
+
+-- order by code asc/desc
+SELECT name as  anbar_name, code as anbar_code, owner_name  FROM mapsa.warehouse order by anbar_code asc  ; 
+SELECT name as  anbar_name, code as anbar_code, owner_name  FROM mapsa.warehouse order by code asc, name desc ;
+SELECT location, area, code, owner_name  FROM mapsa.warehouse order by location asc, area desc ;
+
+--  code = 'h234'   , code != 'h234'   , code <> 'h234' , < , <= , > , >= , and , or , not , in, not in
+select * from mapsa.warehouse where area > 200 and not  location = 'Karaj';
+select * from mapsa.warehouse where area > 200 or location = 'Karaj';
+
+select * from mapsa.warehouse where location in ('Karaj'  , 'Tehran') ; 
+select * from mapsa.warehouse where location not in ('Karaj'  , 'Tehran') ; 
+select * from mapsa.warehouse
+Tehran 3         400 
+Karaj 2         1400
+Yaz 1           10
+;
+
+select location, count(*)  from mapsa.warehouse  group by location ; 
+select location, sum(area)  from mapsa.warehouse group by location ; 
+select location, min(area)  from mapsa.warehouse group by location ; 
+select * from mapsa.warehouse;
+
+-- range :  col_name between a and b
+
+select * from warehouse where area between 200 and 501 ; 
+
+alter table warehouse add create_date datetime;
+
+update  warehouse  set create_date = now() ; 
+
+select * from warehouse where create_date between '2022-01-01' and '2023-01-01' ; 
+
+show variables where variable_name like  '%sql%' ; 
+set sql_safe_updates = off ;  
+
+select * from mapsa.warehouse
+Tehran 3         400 
+Karaj 2         1400
+Yaz 1           10
+;
+
+select location, count(*)  from mapsa.warehouse  group by location ; 
+select location, sum(area)  from mapsa.warehouse group by location ; 
+select location, min(area)  from mapsa.warehouse group by location ; 
+select * from mapsa.warehouse;
+
+select location, count(*)  from mapsa.warehouse  
+group by location
+having count(*) > 2 ; 
+
+select location , sum(area)   from mapsa.warehouse
+where owner_name = 'mina'
+group by location 
+having sum(area) < 11; 
+
+-- like '%na%'
+-- %  zero one or muultiple char 
+--  _ one char
+select * from warehouse where owner_name = "Mina" ; 
+
+select * from warehouse where owner_name like '%na%' ; 
+select * from warehouse where owner_name like '%ana%'  ; 
+select * from warehouse where owner_name like '__na%'  ; 
+select * from warehouse where owner_name like '__na'  ; 
+
+-- distinct 
+select distinct owner_name  from warehouse;
+select distinct location  from warehouse;
+
+-- subquery  
+select * from mapsa.warehouse where area =  (select max(area)  from mapsa.warehouse )  ; 
+select max(area)  from mapsa.warehouse ; 
+
+-- 
+
+create   table product  (
+id int , 
+warehouse_id int,
+name varchar(50) , 
+code varchar(4) , 
+available char(1) , 
+primary key auto_increment (id),
+unique (code),
+foreign key (warehouse_id)  references warehouse (id)
+);
+select * from mapsa.warehouse ;  
+insert into product (warehouse_id , name , code  , available) values
+(13 ,"pen" ,  "P123" , 1  ) , 
+(12 ,"spone" ,  "P341" , 0  ), 
+(12 ,"loptop" , "P321" , 0  ),
+(6 ,"mouse" ,  "P309" , 0  ),
+(7 ,"paper" ,  "P318" , 0  ),
+(11 ,"bag" ,  "P098" , 0  ),
+(11 ,"wire" ,  "P653" , 0  ),
+(11 ,"table" ,  "P32jjj8" , 0  ); 
+
+
+insert into product (warehouse_id , name , code  , available) values
+(13 ,"pen" ,  "R163" , 1  ) ; 
+savepoint sp1 ; 
+insert into product (warehouse_id , name , code  , available) values
+(12,"pen12" ,  "R183" , 1  ) ; 
+insert into product (warehouse_id , name , code  , available) values
+(11 ,"pen12" ,  "R546" , 1  ) ; 
+commit ; 
+rollback ; 
+
+select round(rand()* (20 - 10) + 10) ; 
+select max(area) from warehouse  ; 
+select min(area) from warehouse  ; 
+select avg(area) from warehouse  ; 
+select pow(area , 2) from warehouse  ; 
+select floor(area) from warehouse  ; 
+select ceil(area) from warehouse  ; 
+
+-- String functions
+-- left(str , n) , right(str , n) , concat(col1 , col2 , col3  , ..) , lower(col) , upper (col1) , lenght(col1)
+select  left(code, 1 ) from warehouse ;
+select  right(code, 3 ) from warehouse ;
+select concat(name  ,  ' - ' , owner_name  ) as fullname from warehouse ; 
+select lower(owner_name) from warehouse ; 
+select upper(owner_name) from warehouse ; 
+select length(owner_name) from warehouse ; 
+create table test as  select format(area , 2) from warehouse;
+
+-- Date function
+select curdate() ; 
+select curtime() ; 
+select now() ; 
+select current_date(); 
+select curdate() ; 
+
+select day(now()) ; 
+select day('2022-12-24') ; 
+select month(now()) ; 
+select year(now()) ; 
+select dayname(now()) ; 
+select hour(now()) ; 
+select minute(now()) ; 
+select second(now()) ; 
+select dayofweek('2022-12-24') ; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
