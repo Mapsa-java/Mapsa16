@@ -1,0 +1,54 @@
+1 - Create and start a thread that prints its name for around 5 seconds. One time per second. Run thread in different ways:
+By creating separate class that implements Runnable interface
+By extending Thread class
+By passing lambda function to the constructor of Thread class
+By passing method reference to the constructor of Thread class
+
+
+2- Create nested class Spam that receives an array of time intervals in milliseconds and another connected array of messages. So in case you have five time intervals - you should have five messages. A spam object should print a message and sleep for the corresponding number of milliseconds, connected from another array.
+
+Spam object should stop doing any work in case the ‘Enter’ key has been pressed. You can imitate ‘Enter’ key pressing by passing ‘\n’ character to the input stream of your program. 
+
+During the demo of this task, imitate enter key pressing after five seconds.
+
+
+3 - Create a method that can generate a multidimensional array M x N.
+
+For the sake of the demo, generate an array with 4 rows and 100 columns. 
+
+Find the maximum integer with the help of multiple threads. Comparison of each int should go with 1 millisecond delay to imitate comparison of big objects. This requirement is important in order you could see benefits of multithreading execution. Don’t miss it because it will give you incorrect results. 
+
+Use the same block of code to find the maximum integer in one thread. Do not forget about 1 millisecond delay. Measure the execution time for multithreading solution and single-thread solution. You should see the advantage of a multithreading solution. If you can’t see that multithreading solution solves this task faster, most likely you wrote your program incorrectly. 
+
+
+
+4 - Create a simple CompletableFuture using the supplyAsync method and retrieve the result using the get method. Use a custom ExecutorService to control the number of threads used for executing the task
+
+
+5 - Chain multiple CompletableFuture instances using thenRun, thenCompose, and thenCombine methods. For each CompletableFuture, use a custom ExecutorService to control the number of threads used for executing the tasks. 
+
+
+
+6 - Combine an arbitrary number of CompletableFuture instances using allOf and anyOf methods. Use a custom ExecutorService for each CompletableFuture instance to control the number of threads used for executing the tasks.
+
+
+7 - Create a CompletableFuture with a predefined result using the completedFuture method. Use a custom ExecutorService to control the number of threads used for executing the task.
+
+
+
+8 - Complete a CompletableFuture when another set of CompletableFuture instances is complete using CompletableFuture.allOf and thenRun methods. Use a custom ExecutorService for each CompletableFuture instance to control the number of threads used for executing the tasks. 
+
+
+9 - Implement exception handling in CompletableFuture using exceptionally, handle, and whenComplete methods. Use a custom ExecutorService to control the number of threads used for executing the tasks.
+
+
+10 - Use CompletableFuture with ExecutorService to control the number of threads used in parallel computations. Create a custom ExecutorService and pass it to the runAsync() and supplyAsync() methods to let them execute their tasks in a thread obtained from your thread pool.
+
+
+11 - Implement a timeout for a CompletableFuture using the orTimeout and completeOnTimeout methods. Use a custom ExecutorService to control the number of threads used for executing the tasks.
+
+
+12 - Create a simple application that categorizes a list of bank transactions using CompletableFuture to improve performance. Use a custom ExecutorService to control the number of threads used for executing the tasks.
+
+
+13 - Create two CompletableFuture instances that perform independent calculations. Use thenCombine to process their results and return a new CompletableFuture. Use custom ExecutorService for each CompletableFuture.
