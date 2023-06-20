@@ -1,0 +1,26 @@
+solve questions accourding to objects that have been provided for you :
+
+
+questions :
+
+
+1 Find all products with a price greater than $50.
+2 Find the total price of all products in Warehouse A.
+3 Find the average price of all electronics products.
+4 Sort the products by their names in ascending order.
+5 Check if any product is out of stock.
+6 Get the names of all products in Warehouse B.
+7 Find the most expensive product in each warehouse.
+8 Check if any warehouse has more than 10 products.
+9 Group products by their categories.
+10 Find the cheapest product in the electronics category.
+11 Get the average price of all products in stock.
+12 Find the warehouse with the highest-priced product.
+13 Check if all warehouses have at least one product in stock.
+14 Find the products with names containing the letter 'a'.
+15 Get the number of products in each warehouse.
+16 Find the warehouse with the largest number of products.
+17 Check if any warehouse has only one product.
+18 Find the product with the lowest price in Warehouse A.
+19 Sort the products by their prices in descending order.
+20 Find the names of all products in stock.
