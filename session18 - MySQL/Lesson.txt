@@ -1,0 +1,113 @@
+show databases ; 
+create database mapsa ; 
+drop database mapsa ;
+
+create database mapsa ;
+use mapsa ;
+
+-- createing table
+
+create table sutdent (
+id int , 
+name varchar(50),
+gender  char(1));
+
+show tables ; 
+drop table sutdent ; 
+
+create table student (
+id int , 
+name varchar(50),
+gender  char(1));
+
+
+-- insert data
+insert into student (id ,name , gender) values (1, 'ali' , 'F');
+insert into student (id ,  gender) values (2, 'F');
+insert into student values (3 , "mina" , 'F') ; 
+insert into student values (3 ,  'F' , "mina") ; -- error  
+select * from student ; 
+
+-- delete all rows 
+
+delete from student ; 
+
+-- select some fields 
+
+select id from student ; 
+select name, id,name from student ; 
+select * from student where name = 'mina' ;
+Select id ,name from student where name = 'mina' ;
+
+insert into student values (4 , "tina" , 'F') ; 
+insert into student values (3 ,  'hasan' , "M") ;
+
+select * from student where gender = 'M' ; 
+select * from student where gender = 'm' ; 
+
+Select id ,name from student where name = 'Mina' ;
+
+
+select count(*) from student ; 
+
+select count(*) from student where gender = 'f' ; 
+
+select count(*) from student where gender = 'o' ; 
+
+--
+-- decimal(5, 2) 5-> whole digit : 5 , int : 3 , decimal : 2
+alter table student add avarage decimal(4, 2) ; 
+insert into student values (3 ,  'hasan' , "M" , 99.989) ;
+
+delete from student where id  = 4 ; 
+truncate student ; 
+
+
+insert into student values (3 , "mina" , 'F' , 97.87344) ; 
+insert into student values (4 , "hana" , 'F' , 58.4354) ; 
+
+
+alter table student modify name varchar(50) unique ; 
+
+insert into student values (3 , "zahra" , 'F' , 97.87344) ; 
+
+
+-- 
+update student set id = 5 where name  = 'zahra' ; 
+alter table student modify id int primary key;
+
+alter table student modify name varchar(50) unique default 'unknown';
+
+insert into student (gender , avarage) values ('F' , 98.464586) ; 
+
+update student set avarage = 10 where id  = 1 ; 
+
+insert into student (id , gender , avarage) values (10 , 'F' , 98.464586 ) ; 
+
+
+alter table student modify name varchar(50) ; 
+
+
+alter table student drop name;
+
+alter table student add name varchar (50) unique ; 
+
+insert into student ( gender , avarage , name) values ('F' , 98.464586 , "test name" ) ; 
+
+rename table student to person ; 
+
+ show index from person ;
+ 
+  alter table person drop index name ;
+  
+  
+  
+  create table copy_person as select * from person ; 
+  
+  create table female_person as select * from person where gender = 'f'
+
+
+
+
+
+
