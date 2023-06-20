@@ -1,0 +1,61 @@
+###CREATING 3 TABLES
+ $CREATE TABLE customer( 
+cust_code varchar(5) PRIMARY KEY,
+cust_name varchar(20),
+cust_mail varchar(20) 
+);
+
+ 
+$CREATE TABLE item( 
+item_code varchar(5) PRIMARY KEY,
+item_name varchar(20),
+item_price decimal(10) 
+); 
+
+$CREATE TABLE order_details( 
+order_no varchar(8) PRIMARY KEY,
+order_date date, 
+cust_code varchar(5),
+item_code varchar(5), 
+order_qty int(5),
+ FOREIGN KEY(cust_code) REFERENCES customer(cust_code),
+ FOREIGN KEY(item_code) REFERENCES item(item_code) 
+) ; 
+### INSERTING DATA INTO THE TABLE 
+
+#CUSTOMER TABLE 
+$INSERT INTO customer 
+	VALUES
+	('C0001', 'Robert', 'trob@gmail.com1'),
+	('C0002', 'John', 'ijohn@gmail.com1'),
+	('C0003', 'William', 'will@gmail.com'), 
+	('C0004', 'Smith', 'smth@gmail.com'), 
+	('C0005', 'Kumar', 'kur@gmail.com'),
+	('C0006', 'Peter', 'peterOgmail.com'); 
+
+#Item	
+$INSERT INTO item 
+	VALUES
+	('ITM01', 'AAA', 300),
+	('ITM02', 'BBB', 500),
+	('ITM03', 'CCC', 200),
+	('ITM04', 'DDD', 400) 
+
+
+#ORDER DETAILS 
+$
+INSERT INTO order_details
+ VALUES 
+ ('ORD0001', '2021-07-15', 'C0004', 'ITM02', 5),
+ ('ORD0002', '2021-07-16', 'C0002', 'ITM04', 3),
+ ('ORD0003', '2021-07-17', 'C0005', 'ITM02', 7), 
+ ('ORD0004', '2021-07-17', 'C0001', 'ITM03', 10), 
+ ('ORD0005', '2021-07-18', 'C0002', 'ITM02', 4)
+ ; 
+ --- 1, 2, 4, 5
+####################################### #Diplay all the tables 
+select * from customer;
+select * from item; 
+select * from order_details; 
+####################################### 
+
