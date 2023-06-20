@@ -1,0 +1,3 @@
+public class Contact {
+    // write code here
+}

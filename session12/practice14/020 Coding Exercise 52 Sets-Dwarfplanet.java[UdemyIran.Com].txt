@@ -1,0 +1,3 @@
+public class DwarfPlanet {
+    // write code here
+}
