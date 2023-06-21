@@ -1,0 +1,68 @@
+Create a table named "person" with columns:
+id
+name
+email
+phone_number
+age
+gender
+date_of_birth
+occupation
+education_level
+marital_status
+income
+
+1 - 
+insert 20 rows with diffrent data, you can you AI like chatGp for creating sample data to insert.
+e.g. 
+INSERT INTO person (name, age, email, phone_number, gender, date_of_birth, occupation, education_level, marital_status, income)
+VALUES ('Alice Johnson', 35, 'alice@example.com', '123-456-7890', 'Female', '1988-05-10', 'Engineer', 'Bachelor's Degree', 'Married', 50000);
+
+2 - Retrieve all persons sorted by their age in ascending order.
+3 - Retrieve the count of persons for each age group.
+4 - Retrieve the average age of persons.
+5 - Retrieve the persons whose age is between 30 and 40.
+6 - Retrieve the persons whose names start with the letter 'J'.
+7 - Update the age of the person with email = "john.doe@example.com" to 35.
+8 - Delete all persons who are younger than 18.
+9 - Retrieve the persons and their respective count of posts.
+10 - Retrieve the persons who have more than 2 posts.
+11 - Retrieve the persons and their total income, sorted in descending order of income.
+12 - Retrieve the persons who have a salary greater than the average income.
+13 - Retrieve the persons whose email addresses contain "gmail.com".
+14 - Retrieve the persons grouped by nationality and display the count of persons in each group.
+15 - Retrieve the persons whose names contain the word "Smith" and are older than 40.
+16 - Retrieve the persons whose names have at least 5 characters and end with the letter 'a'.
+17 - Retrieve the persons and their ages, giving the age column an alias of "Years".
+18 - Retrieve the persons and their ages, rounding the age values to the nearest whole number.
+19 - Update the email of the person with the highest age to "oldest@example.com".
+20 - Delete all persons whose names are duplicated in the table, keeping only one instance of each name.
+
+--- reate a table named "post" with columns: id , title, content, and person_id  as a foreign key referencing the "person" table.
+
+insert some data in post table
+e.g. 
+INSERT INTO post (title, content, person_id) VALUES ('First Post', 'Hello World!', 1);
+INSERT INTO post (title, content, person_id) VALUES ('Second Post', 'SQL Basics', 2);
+INSERT INTO post (title, content, person_id) VALUES ('Third Post', 'Advanced SQL Techniques', 3);
+
+
+ 21 - Retrieve all posts along with the names of the persons who wrote them.
+ 22 - Retrieve the count of posts for each person.
+ 23 - Retrieve the persons who have not written any posts.
+ 24 - Retrieve the average age of persons who have written at least 3 posts.
+ 25 - Retrieve the persons who have written posts containing the word "SQL" in the content.
+ 26 - Retrieve the persons who have written the longest post.
+ 27 - Retrieve the posts along with the total number of likes each post has received.
+ 28 - Retrieve the posts with their respective person names and sort them by the person's age in descending order.
+ 29 - Retrieve the persons who have written posts, grouped by their marital status, and display the count of persons in each group.
+ 30 - Retrieve the posts written by persons aged between 25 and 40.
+ 31 - Retrieve the persons who have written posts, ordered by their education level in ascending order and then by their income in descending order.
+ 32 - Retrieve the posts along with the average age of persons who have liked each post.
+ 33 - Retrieve the persons who have written posts, where the number of posts they have written is greater than the average number of posts.
+ 34 - Retrieve the posts written by persons whose email addresses contain "gmail.com".
+ 35 - Retrieve the persons who have written the most recent post.
+ 36 - Retrieve the persons who have written posts, along with the earliest date of their post.
+ 37 - Retrieve the posts that have received more than 10 likes.
+ 38 - Retrieve the persons who have written posts, along with the count of likes for each person's posts.
+ 39 - Retrieve the posts along with the person names, sorted by the length of the post content in descending order.
+ 40 - Retrieve the persons who have written posts, where the number of their posts is greater than the number of posts written by any other person.
