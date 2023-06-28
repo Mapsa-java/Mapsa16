@@ -3,7 +3,7 @@ package org.mapsa;
 import org.mapsa.entities.Student;
 import org.mapsa.service.StudentService;
 
-public class App {
+public class StudentCrudTest {
 
 
     public static void main(String[] args) {
