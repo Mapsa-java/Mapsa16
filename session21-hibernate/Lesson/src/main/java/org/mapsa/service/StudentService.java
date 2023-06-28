@@ -22,4 +22,30 @@ public class StudentService {
 
     }
 
+    public void updateStudent(Student student){
+        Session session = sessionFactory.openSession() ;
+        session.beginTransaction() ;
+        session.update(student); ;
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public void deleteStudent(Student student){
+        Session session = sessionFactory.openSession() ;
+        session.beginTransaction() ;
+        session.delete(student); ;
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public Student getStudentById(Integer id){
+        Session session = sessionFactory.openSession() ;
+        Student std = session.get(Student.class , id) ;
+        session.close();
+        return std ;
+    }
+
+
+
+
 }
