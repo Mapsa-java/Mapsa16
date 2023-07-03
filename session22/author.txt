@@ -1,0 +1,34 @@
+author {
+id
+string name , 
+date birthdate,
+oneToMany
+list<post>
+}
+
+@oneToMany
+
+
+post {
+id , 
+ManyToOne
+author,
+content,
+ManyToMany
+List<Category>
+
+}
+
+catogory{
+id
+title
+@ManyToMany
+List<Post>
+}
+
+
+authorDetail{
+id 
+author_id
+bio
+}
