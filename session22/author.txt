@@ -1,14 +1,19 @@
 author {
 id
-string name , 
+string name ,    
 date birthdate,
 oneToMany
 list<post>
 }
 
-@oneToMany
 
 
+should have following method in author service :
+create, update, remove, getById
+getByName, 
+getAll
+********************
+Access(AccessType.Property)
 post {
 id , 
 ManyToOne
@@ -16,15 +21,43 @@ author,
 content,
 ManyToMany
 List<Category>
+boolean publish , 
+publishDate, 
+PublishTime,
+createDate  ---> LocalDateTime) 
+age         ---> @Transinet (now() - createDate)
 
 }
 
+
+
+should have following method in post service :
+create, update, remove, getById
+publish --->(this method updates post and sets it pobish value to true)
+getByName, 
+getAll,
+getAllPublishedPost
+
+-- chalenging method :
+ getPostByCategory(String categoryTitle)  --> this method should return all post that are in specefic category title
+
+********************
 catogory{
 id
-title
+title 
 @ManyToMany
 List<Post>
 }
+
+
+
+should have following method in catogory service :
+create, update, remove, getById
+getByTitle, 
+getAll,
+
+
+********************
 
 
 authorDetail{
