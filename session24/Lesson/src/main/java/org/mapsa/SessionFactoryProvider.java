@@ -18,6 +18,7 @@ public class SessionFactoryProvider {
             cfg.addAnnotatedClass(Role.class);
             cfg.addAnnotatedClass(Event.class);
             cfg.addAnnotatedClass(EventTemporal.class);
+            cfg.addAnnotatedClass(Customer.class);
             sf = cfg.buildSessionFactory();
             return sf ;
         }

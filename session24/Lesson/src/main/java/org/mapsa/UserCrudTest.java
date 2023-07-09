@@ -1,8 +1,6 @@
 package org.mapsa;
 
-import org.mapsa.entities.MaritalStatus;
-import org.mapsa.entities.RelativeType;
-import org.mapsa.entities.User;
+import org.mapsa.entities.*;
 import org.mapsa.service.UserService;
 
 import java.text.ParseException;
@@ -16,7 +14,7 @@ public class UserCrudTest {
         UserService userService = new  UserService(SessionFactoryProvider.getSessionFactory()) ;
 
         User admin = new User("om Albanin","karami") ;
-        admin.setMaritalStatus(MaritalStatus.SINGLE);
+        admin.setMaritalStatus(MaritalStatus.MARRIED);
         SimpleDateFormat smp = new SimpleDateFormat("yyyy-MM-dd") ;
         admin.getLoginDate().add(smp.parse("2022-01-24"));
         admin.getLoginDate().add(smp.parse("2022-02-23"));
@@ -27,15 +25,17 @@ public class UserCrudTest {
         admin.getChildNames().add("ali");
         admin.getChildNames().add("fatemeh");
 
-        admin.getRelatives().put(RelativeType.FATHER , "hossein") ;
-        admin.getRelatives().put(RelativeType.MOTHER , "kosar") ;
-        admin.getRelatives().put(RelativeType.SISTER , "zeinab") ;
+        admin.getRelatives().add(new Relative("hossein" , "karimi" , RelativeType.FATHER)) ;
+        admin.getRelatives().add(new Relative("tina" , "asghari" , RelativeType.MOTHER)) ;
 
+
+        Address home = new Address("tehran" , "iran") ;
+
+        admin.setHomeAddress(home);
         userService.create(admin) ;
 
 
-        User hana = userService.getByName("om Albanin").get(0) ;
-        hana.getLoginDate().forEach(item-> System.out.println(item));
+
         //hana.getLoginDate()
 //        hana.getChildNames().forEach(item-> System.out.println(item));*/
 

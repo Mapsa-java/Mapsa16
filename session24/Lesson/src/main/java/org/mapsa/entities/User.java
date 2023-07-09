@@ -16,16 +16,23 @@ public class User {
     private String lastName;
     @OneToOne(mappedBy = "user")
     private Credential credential ;
-    @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL)
-    private List<Address> addresses = new ArrayList<>();
     @Enumerated(EnumType.STRING)
     private MaritalStatus maritalStatus;
+    @Embedded
+    @AttributeOverrides(
+            {@AttributeOverride(name = "city" , column = @Column(name="user_home_city")),
+            @AttributeOverride(name = "country" , column = @Column(name="user_home_country"))}
 
- /*   @ElementCollection
-    @CollectionTable(name = "user_date" , joinColumns = @JoinColumn(name ="uid"))
-    @Column(name = "value")
-    @OrderBy("user_date desc ")
-    private Set<Date> loginDate = new HashSet<>();*/
+    )
+    private Address homeAddress ;
+
+    @Embedded
+    @AttributeOverrides(
+            {@AttributeOverride(name = "city" , column = @Column(name="user_work_city")),
+                    @AttributeOverride(name = "country" , column = @Column(name="user_work_country"))}
+
+    )
+    private Address workAddress ;
 
 
     @ElementCollection(fetch = FetchType.EAGER)
@@ -39,12 +46,18 @@ public class User {
     @OrderBy("childNames desc")
     private Set<String> childNames = new LinkedHashSet<>() ;
 
-
-
     @ElementCollection
+    @AttributeOverrides(
+            {@AttributeOverride(name = "fname" , column = @Column(name="user_relative_fname")),
+                }
+    )
+    private List<Relative> relatives  = new ArrayList<>();
+
+
+/*    @ElementCollection
     @MapKeyColumn(name = "relative_type")
     @MapKeyEnumerated(EnumType.STRING)
-    private Map<RelativeType, String> relatives  = new HashMap<>() ;
+    private Map<RelativeType, String> relatives  = new HashMap<>() ;*/
 
 
     @Transient
@@ -91,9 +104,7 @@ public class User {
     public void setCredential(Credential credential) {
         this.credential = credential;
     }
-   public List<Address> getAddresses() {
-        return addresses;
-    }
+
      public String getFirstNameToLower() {
         return firstNameToLower;
     }
@@ -108,11 +119,6 @@ public class User {
 
     public void setMaritalStatus(MaritalStatus maritalStatus) {
         this.maritalStatus = maritalStatus;
-    }
-
-
-    public void setAddresses(List<Address> addresses) {
-        this.addresses = addresses;
     }
 
     public List<Date> getLoginDate() {
@@ -135,11 +141,27 @@ public class User {
         this.childNames = childNames;
     }
 
-    public Map<RelativeType, String> getRelatives() {
+  /*  public Map<RelativeType, String> getRelatives() {
         return relatives;
     }
 
     public void setRelatives(Map<RelativeType, String> relatives) {
+        this.relatives = relatives;
+    }*/
+
+    public Address getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(Address homeAddress) {
+        this.homeAddress = homeAddress;
+    }
+
+    public List<Relative> getRelatives() {
+        return relatives;
+    }
+
+    public void setRelatives(List<Relative> relatives) {
         this.relatives = relatives;
     }
 

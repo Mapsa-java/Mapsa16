@@ -1,0 +1,50 @@
+Post 
+StatusType status    (Enum : deleted , draft , published )
+
+-----------------------
+Author  
+@EelementCollection
+List<String>   hobbies ; 
+
+--------
+Author  
+@EelementCollection
+Set<String>   languages ; 
+
+
+--------
+Author  
+@EelementCollection
+@mapKeyEnumerated
+Map< ContactPointType,String >   contactPoints ; 
+--------------------
+@Embedable
+Education {
+degree
+organization
+}
+
+
+AuthorDetail
+@ElementCollection
+List<Education>
+-------------------------
+@Embedable
+CreateInfo{
+createDate, createUser
+}
+
+Author{
+@Embeded
+CreateInfo
+}
+
+Post{
+@Embeded
+CreateInfo
+}
+
+
+
+
+
