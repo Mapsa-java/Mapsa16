@@ -1,21 +1,26 @@
-package org.mapsa.entities;
+package org.mapsa.entities.joined;
 
 import javax.persistence.*;
 
 @Entity
-public class User {
+@Inheritance(strategy = InheritanceType.JOINED)
+public class UserJoined {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
     private Integer id;
     @Column(name = "name")
     private String name;
 
-    public User() {
+    @Column(name = "age")
+    private Integer age;
+
+    public UserJoined() {
 
     }
 
-    public User(String name) {
+    public UserJoined(String name , Integer age) {
         this.name = name;
+        this.age = age ;
     }
 
     public Integer getId() {

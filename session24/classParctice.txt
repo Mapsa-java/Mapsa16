@@ -1,0 +1,32 @@
+//Customer ---customerno
+//Real    ----nationalcode
+//Leagal  ----shenase
+
+@strateg ---> Single
+Customer  (no)
+RealCustomer (nationalcode)   |   LeagalCustomer   (shenase)
+------------------------------------------------------------------
+@stratgy ---> TablePerClass
+
+Institute   name , 
+	
+	PublicInstitute    --- budgetSpecified     
+	PrivateInstitute   --- owner
+------------------------------------------------------------------
+@Strategy Joined
+
+--Person   nationalcode
+
+---Student      String studentNumber
+---Personnel    String position
+----------------------------------------------------
+
+
+
+
+
+
+
+
+
+
