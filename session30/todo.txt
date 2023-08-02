@@ -1,0 +1,19 @@
+Embeded database
+----------------
+Actuator
+----------------
+Swagger
+----------------
+Profile
+----------------
+devtools
+----------------
+Auto Configuration
+----------------
+Starter
+----------------
+model
+mapper
+entity
+----------------
+Spring Security 
