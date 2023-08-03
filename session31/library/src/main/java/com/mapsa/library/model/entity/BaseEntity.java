@@ -22,7 +22,7 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
     @CreatedDate
-    protected Instant creationTime;
+    protected Instant creationTime ;
     @LastModifiedDate
     protected Instant updateAt;
     protected Boolean deleted = false;
